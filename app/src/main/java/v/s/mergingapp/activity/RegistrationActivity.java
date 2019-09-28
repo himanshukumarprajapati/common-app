@@ -13,6 +13,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,26 +52,23 @@ public class RegistrationActivity extends AppCompatActivity {
     TextInputEditText verify_numbers;
 
     SharedPreferences pref;
-    String phone_number, SchoolId;
+    String phone_number,SchoolId;
 
     public ProgressDialog mProgressDialog;
 
-    String Exists, OTP;
+    String Exists,OTP;
 
     TextView username_text_input_layout;
 
-    public static final String USER_PREF = "USER_PREF";
+    public static final String USER_PREF = "USER_PREF" ;
     SharedPreferences sp;
 
 
-    EditText ed_otp;
-
-///hiiiiihelloassd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+       // clickgreen=findViewById(R.id.clickgreen);
         //ed_otp = findViewById(R.id.ed_otp);
 
         //  username_text_input_layout=findViewById(R.id.username_text_input_layout);
@@ -190,9 +189,11 @@ public class RegistrationActivity extends AppCompatActivity {
         if (inputText.length() == 10) {
             //  buttonConfirm.setText("I Am Enabled.");
             buttonConfirm.setVisibility(View.VISIBLE);
+            //clickgreen.setVisibility(View.VISIBLE);
         } else {
             //   buttonConfirm.setText("I Am Disabled.");
             buttonConfirm.setVisibility(View.INVISIBLE);
+          //  clickgreen.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -287,7 +288,7 @@ public class RegistrationActivity extends AppCompatActivity {
                      //   registerReceiver(new SmsReceiver(), filter);
                         if (Exists.equals("false")) {
 
-                            Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this, NewUserOtp.class);
                             startActivity(intent);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             SharedPreferences.Editor editor = prefs.edit();
@@ -303,7 +304,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                         } else if (Exists.equals("true")) {
 
-                            Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this, NewUserOtp.class);
                             startActivity(intent);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             SharedPreferences.Editor editor = prefs.edit();

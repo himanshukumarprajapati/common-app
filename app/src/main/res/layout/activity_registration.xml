@@ -4,98 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.RegistrationActivity">
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_large"
-        android:layout_marginTop="@dimen/spacing_xlarge"
-        android:orientation="horizontal">
-<!--
-        <android.support.design.widget.TextInputEditText
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="+91"
-            android:textSize="@dimen/_14sdp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-            android:textColor="@color/grey_80" />-->
+            android:layout_gravity="center|top"
+            android:orientation="vertical">
 
-        <View
-            android:layout_width="@dimen/spacing_medium"
-            android:layout_height="0dp" />
+            <!--<ImageView
+                android:layout_gravity="center"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:src="@drawable/img_number_verification" />
+-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verify Your Number"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:textColor="@color/grey_80"
+                android:textSize="@dimen/_17sdp"
+                android:layout_gravity="center"
+                android:textStyle="bold" />
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/verify_numbers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text=""
-            android:textSize="@dimen/_14sdp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textColor="@color/grey_90"
-            android:textStyle="bold" >
+            <!--<TextView
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="Please enter your mobile number to receive a verification code."
+                android:textAlignment="center"
+                android:textSize="@dimen/_12sdp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/grey_60" />
+    -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:orientation="horizontal">
 
-            <requestFocus/>
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="+91"
+                    android:textSize="@dimen/_14sdp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                    android:textColor="@color/grey_80" />
 
-        </android.support.design.widget.TextInputEditText>
+                <View
+                    android:layout_width="@dimen/spacing_medium"
+                    android:layout_height="0dp" />
 
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/verify_numbers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="@dimen/_14sdp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/grey_90"
+                    android:textStyle="bold" >
+
+                    <requestFocus/>
+
+                </android.support.design.widget.TextInputEditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                >
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/buttonConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/spacing_large"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="ACCENT"
+                    android:visibility="invisible"
+                    android:tint="@android:color/white"
+                    app:backgroundTint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_arrow_right" />
+                <!--<android.support.v7.widget.AppCompatButton
+                  android:id="@+id/buttonConfirm"
+                  android:layout_width="400dp"
+                  android:layout_height="70dp"
+                  android:background="@drawable/btn_rounded_primary"
+                  android:layout_gravity="end"
+                  android:text="CONTINUE"
+                  android:textSize="@dimen/_12sdp"
+                  android:visibility="visible"
+                  android:textColor="@color/mdtp_white" />-->
+            </LinearLayout>
+            <!-- <android.support.v7.widget.AppCompatButton
+                 android:id="@+id/buttonConfirm"
+                 android:layout_width="250dp"
+                 android:layout_height="90dp"
+                 android:background="@drawable/btn_rounded_primary"
+                 android:text="CONTINUE"
+                 android:visibility="visible"
+                 android:textSize="@dimen/_12sdp"
+                 android:textColor="@color/mdtp_white" />-->
+
+            <!-- <android.support.v7.widget.AppCompatButton
+                 style="@style/Widget.AppCompat.Button.Borderless"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:text="NO, OTHER TIME"
+                 android:textColor="@color/grey_40" />-->
+
+        </LinearLayout>
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        >
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/buttonConfirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/spacing_large"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="ACCENT"
-            android:visibility="invisible"
-            android:tint="@android:color/white"
-            app:backgroundTint="@color/colorAccent"
-            app:srcCompat="@drawable/ic_arrow_right" />
-        <!--<android.support.v7.widget.AppCompatButton
-          android:id="@+id/buttonConfirm"
-          android:layout_width="400dp"
-          android:layout_height="70dp"
-          android:background="@drawable/btn_rounded_primary"
-          android:layout_gravity="end"
-          android:text="CONTINUE"
-          android:textSize="@dimen/_12sdp"
-          android:visibility="visible"
-          android:textColor="@color/mdtp_white" />-->
-    </LinearLayout>
-    </LinearLayout>
-
-   <!-- <EditText
-        android:layout_marginTop="50dp"
-        android:id="@+id/ed_otp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
-
 
 </RelativeLayout>
