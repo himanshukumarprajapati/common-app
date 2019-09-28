@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MergingApp</string>
+
+    <string name="facebook_app_id">359148734756527</string>
+    <string name="fb_login_protocol_scheme">fb359148734756527</string>
+
+    <string name="default_web_client_id">925604332432</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="username_required">Not Valid Number</string>
+
+    <string name="username_required_value">Valid Number</string>
+
+    <string name="AGREE">YES</string>
+    <string name="DISAGREE">NO</string>
+
+    <string name="i_am_sure">I AM SURE</string>
+    <string name="re_try">RE-TRY</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="toast_for_cancelling_the_permission">Sorry you can not proceed further process</string>
+    <string name="You_need_to_Accept">You need to Accept</string>
+    <string name="permission_to_access_the_app">permissions to access the app</string>
+    <string name="RECEIVE_SMS">RECEIVE_SMS</string>
+    <string name="READ_SMS">READ_SMS</string>
+</resources>
