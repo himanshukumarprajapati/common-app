@@ -14,6 +14,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
+import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -45,21 +47,13 @@ import java.util.regex.Pattern;
 import v.s.mergingapp.R;
 
 public class RegistrationActivity extends AppCompatActivity {
-
-
-    FloatingActionButton buttonConfirm;
-
+    Button buttonConfirm;
     TextInputEditText verify_numbers;
-
     SharedPreferences pref;
     String phone_number,SchoolId;
-
     public ProgressDialog mProgressDialog;
-
     String Exists,OTP;
-
     TextView username_text_input_layout;
-
     public static final String USER_PREF = "USER_PREF" ;
     SharedPreferences sp;
 
@@ -72,6 +66,9 @@ public class RegistrationActivity extends AppCompatActivity {
         //ed_otp = findViewById(R.id.ed_otp);
 
         //  username_text_input_layout=findViewById(R.id.username_text_input_layout);
+
+
+
         verify_numbers = findViewById(R.id.verify_numbers);
 
         phone_number = verify_numbers.getText().toString();

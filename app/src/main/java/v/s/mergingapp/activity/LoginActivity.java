@@ -43,6 +43,7 @@ import java.util.Arrays;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import v.s.mergingapp.R;
+import v.s.mergingapp.model.UserDetail;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener{
     EditText user_name,user_email;
@@ -64,40 +65,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText ed_otp;
     TextView sign_up;
+    String SAVE_USER_ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
         login_button_gmail=findViewById(R.id.login_button);
         login_button_facebook=findViewById(R.id.gmail_btn);
         login_button_gmail.setOnClickListener(this);
         login_button_facebook.setOnClickListener(this);
         sign_up=findViewById(R.id.sign_up);
         sign_up.setOnClickListener(this);
-
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        mGoogleApiClient=new GoogleApiClient.Builder(this)
-                .enableAutoManage( this,this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        mGoogleApiClient=new GoogleApiClient.Builder(this).enableAutoManage( this,this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-
-
                 AccessToken accessToken=loginResult.getAccessToken();
-
                 GraphRequest request=GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-
                         JSONObject jObject = response.getJSONObject();
                         String data = null;
                         try {
@@ -116,12 +108,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String fName = parts[0]; // 004
                             String lName = parts[1].length()>1?parts[1]:"";
                             Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
+                            intent.putExtra("DataComes",data);
+                            intent.putExtra("User_Email",jObject.getString("email"));
+                            intent.putExtra("User_Name",jObject.getString("name"));
+                            intent.putExtra("User_Image","http://graph.facebook.com/"+ jObject.getString("id") + "/picture?type=large");
                             intent.putExtra("from","login");
-                            startActivity(intent);
-                            finish();
-                                           /* pref.saveData(Pref.userImage, "http://graph.facebook.com/"
-                                                    + jObject.getString("id") + "/picture?type=large");*/
 
+                            UserDetail userDetail=new UserDetail();
+                            userDetail.setUser_Email(jObject.getString("email"));
+//                            SAVE_USER_ID = userDetail.getUser_Email();
+                            startActivity(intent);
+
+                            finish();
                             Log.e("facebookdata", data);
 
                         } catch (JSONException e) {
@@ -159,7 +157,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Log.d("Tag", "onActivityResult:" + requestCode + ":" + resultCode + ":" + data);
 
         if(requestCode==RC_SIGN_IN) {
-
+            String datas = null;
             if (resultCode == Activity.RESULT_OK) {
                 GoogleSignInResult result=Auth.GoogleSignInApi.getSignInResultFromIntent(data);
                 GoogleSignInAccount acct = result.getSignInAccount();
@@ -171,9 +169,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         + "\nPhoto = " + personPhoto+"\nID" + personId);
                 Toast.makeText(this, "Welcome " + personName, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, ProfileActivity.class);
+                datas = "name = " + personName;
+                datas += "\nid = "  + personId;
+                datas += "\nemail = " + personEmail;
+                intent.putExtra("DataComes",datas);
+                intent.putExtra("User_Name",personName);
+                intent.putExtra("User_Email",personEmail);
+                intent.putExtra("User_Image",personPhoto);
                 intent.putExtra("from","login");
+                UserDetail userDetail=new UserDetail();
+                userDetail.setUser_Email(personEmail);
                 startActivity(intent);
                 this.finish();
+                Log.e("googlelogin", datas);
+
             }
 
         }else {

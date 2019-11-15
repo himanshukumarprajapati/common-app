@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:layout_scrollFlags="scroll|enterAlways"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/hambrge_menue_id_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/_8ssp"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:paddingTop="@dimen/_8ssp">
+
+        <ImageView
+            android:id="@+id/hambrge_menue_id"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignBottom="@+id/notice"
+            android:src="@drawable/back"
+
+          />
+
+        <TextView
+            android:layout_toRightOf="@+id/hambrge_menue_id"
+            android:id="@+id/notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notice"
+            android:textColor="@color/mdtp_white"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+
+            />
+
+        <TextView
+            android:layout_toRightOf="@+id/notice"
+            android:id="@+id/class_toolbars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notice"
+            android:textColor="@color/mdtp_white"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_1sdp"
+            android:visibility="gone"
+            />
+
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.Toolbar>

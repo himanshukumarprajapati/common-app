@@ -183,14 +183,9 @@ public class NewUserOtp extends AppCompatActivity {
 
         }else {
             Toast toast = Toast.makeText(NewUserOtp.this,"OTP Not Valid", Toast.LENGTH_LONG);
-            //   Toast.makeText(this,"OTP Not Valid",Toast.LENGTH_SHORT).show();
             toast.setGravity(Gravity.CENTER, 0, 0);
             View view = toast.getView();
-
-//Gets the actual oval background of the Toast then sets the colour filter
             view.getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
-
-//Gets the TextView from the Toast so it can be editted
             TextView text = view.findViewById(android.R.id.message);
             text.setTextColor(Color.WHITE);
             toast.show();

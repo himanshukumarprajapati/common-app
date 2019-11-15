@@ -7,34 +7,29 @@
     android:orientation="vertical"
     tools:context=".activity.RegistrationActivity">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">
-
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbarsmshistory" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
+            android:padding="@dimen/_10sdp"
             android:orientation="vertical">
-
-            <!--<ImageView
-                android:layout_gravity="center"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
-                android:src="@drawable/img_number_verification" />
--->
-            <TextView
+               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verify Your Number"
+                android:text="Verify Mobile Number"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@color/grey_80"
                 android:textSize="@dimen/_17sdp"
                 android:layout_gravity="center"
-                android:textStyle="bold" />
+               />
 
             <!--<TextView
                 android:layout_width="280dp"
@@ -72,15 +67,14 @@
                     android:id="@+id/verify_numbers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone Number"
+                    android:hint="Enter Mobile Number"
                     android:inputType="phone"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text=""
                     android:textSize="@dimen/_14sdp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="@color/grey_90"
-                    android:textStyle="bold" >
+                    android:textColor="@color/grey_90">
 
                     <requestFocus/>
 
@@ -88,14 +82,27 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 >
 
-                <android.support.design.widget.FloatingActionButton
+                <Button
+                    android:id="@+id/buttonConfirm"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_square_primary"
+                    android:text="SEND OTP"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/mdtp_white"
+                    android:visibility="gone"
+                    />
+
+               <!-- <android.support.design.widget.FloatingActionButton
                     android:id="@+id/buttonConfirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +115,7 @@
                     android:visibility="invisible"
                     android:tint="@android:color/white"
                     app:backgroundTint="@color/colorAccent"
-                    app:srcCompat="@drawable/ic_arrow_right" />
+                    app:srcCompat="@drawable/ic_arrow_right" />-->
                 <!--<android.support.v7.widget.AppCompatButton
                   android:id="@+id/buttonConfirm"
                   android:layout_width="400dp"
